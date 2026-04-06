@@ -17,7 +17,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "tinkobeats_secret_key_123";
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3000;
 
   app.use(cors());
   app.use(express.json());

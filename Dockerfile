@@ -9,11 +9,11 @@ RUN npm install
 # Copy source code
 COPY . .
 
+# Set environment to production
+ENV NODE_ENV=production
+
 # Build the frontend
 RUN npm run build
 
-# Expose the port
-EXPOSE 3000
-
 # Start the application
-CMD ["npm", "start"]
+CMD ["node", "--experimental-strip-types", "server.ts"]
